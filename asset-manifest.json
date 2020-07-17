@@ -1,15 +1,15 @@
 {
   "files": {
     "main.css": "/text-reader/static/css/main.b265a2db.chunk.css",
-    "main.js": "/text-reader/static/js/main.0b020859.chunk.js",
-    "main.js.map": "/text-reader/static/js/main.0b020859.chunk.js.map",
+    "main.js": "/text-reader/static/js/main.49b051eb.chunk.js",
+    "main.js.map": "/text-reader/static/js/main.49b051eb.chunk.js.map",
     "runtime-main.js": "/text-reader/static/js/runtime-main.3df14ca8.js",
     "runtime-main.js.map": "/text-reader/static/js/runtime-main.3df14ca8.js.map",
     "static/css/2.4c4477be.chunk.css": "/text-reader/static/css/2.4c4477be.chunk.css",
     "static/js/2.b3596a25.chunk.js": "/text-reader/static/js/2.b3596a25.chunk.js",
     "static/js/2.b3596a25.chunk.js.map": "/text-reader/static/js/2.b3596a25.chunk.js.map",
     "index.html": "/text-reader/index.html",
-    "precache-manifest.5e7a410c38ae5b180eb43c2444e468ae.js": "/text-reader/precache-manifest.5e7a410c38ae5b180eb43c2444e468ae.js",
+    "precache-manifest.29c9499c90a7ed80adc6307a2acfb212.js": "/text-reader/precache-manifest.29c9499c90a7ed80adc6307a2acfb212.js",
     "service-worker.js": "/text-reader/service-worker.js",
     "static/css/2.4c4477be.chunk.css.map": "/text-reader/static/css/2.4c4477be.chunk.css.map",
     "static/css/main.b265a2db.chunk.css.map": "/text-reader/static/css/main.b265a2db.chunk.css.map",
@@ -20,6 +20,6 @@
     "static/css/2.4c4477be.chunk.css",
     "static/js/2.b3596a25.chunk.js",
     "static/css/main.b265a2db.chunk.css",
-    "static/js/main.0b020859.chunk.js"
+    "static/js/main.49b051eb.chunk.js"
   ]
 }
