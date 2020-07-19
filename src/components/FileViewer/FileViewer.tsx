@@ -1,6 +1,6 @@
 import "./FileViewer.scss";
 import { Button, Col, Divider, Pagination, Row, Upload } from "antd";
-import React, { useEffect, useState } from "react";
+import React, { KeyboardEvent, useEffect, useState } from "react";
 import { UploadOutlined } from "@ant-design/icons";
 import { FileUpload, Marker, SearchBar } from "../";
 import {
@@ -26,6 +26,7 @@ export const FileViewer = (props: FileViewerProps) => {
   const [file, setFile] = useState<FileViewerProps>({});
   const [filterData, setFilterData] = useState<Array<MatchDataMeta>>([]);
   const [searchStrIndex, setSearchStrIndex] = useState<Array<number>>([]);
+  const [currentPage, SetCurrentPage] = useState<number>(0);
   const [isSearching, setIsSearching] = useState<boolean>(false);
   const debouncedSearchTerm = useDebounce(searchText, 300);
   const disableHeader = !file.hasOwnProperty("data");
@@ -43,17 +44,27 @@ export const FileViewer = (props: FileViewerProps) => {
         searchText.length,
         file.data || ""
       );
+      SetCurrentPage(1);
       setSearchStrIndex(searchStrIndex);
       setFilterData(filteredData);
     } else {
       resetData();
+      SetCurrentPage(0);
     }
   }, [debouncedSearchTerm]);
 
   useEffect(() => {
     setSearchText("");
     resetData();
+    SetCurrentPage(0);
   }, [file]);
+
+  useEffect(() => {
+    const ele = document.getElementById(`${file.name}-${currentPage}`);
+    if (ele) {
+      ele.scrollIntoView({ behavior: "smooth", block: "start" });
+    }
+  }, [currentPage]);
 
   const onFileUpload = (info: any) => {
     if (info.file.status !== "uploading") {
@@ -77,13 +88,18 @@ export const FileViewer = (props: FileViewerProps) => {
     setSearchStrIndex([]);
   };
 
-  const onPageChange = (page: number) => {
-    const ele = document.getElementById(`${file.name}-${page}`);
-    const scrollDiv = document.getElementById("file-upload-wrapper");
-    if (ele && scrollDiv) {
-      ele.scrollIntoView({ behavior: "smooth", block: "nearest" });
-      // scrollDiv.scrollTop = ele.offsetTop;
+  const onPressEnter = (e: KeyboardEvent<HTMLInputElement>) => {
+    if (searchStrIndex.length === 0) {
+      SetCurrentPage(0);
+    } else if (currentPage < searchStrIndex.length) {
+      SetCurrentPage(currentPage + 1);
+    } else {
+      SetCurrentPage(1);
     }
+  };
+
+  const onPageChange = (page: number) => {
+    SetCurrentPage(page);
   };
   let searchIdCounter = 1;
   return (
@@ -91,12 +107,14 @@ export const FileViewer = (props: FileViewerProps) => {
       <Row className="file-search-controller">
         <Col flex={3}>
           <SearchBar
+            onPressEnter={onPressEnter}
             isDisable={disableHeader}
             onSearch={setSearchText}
           ></SearchBar>
         </Col>
         <Col>
           <Pagination
+            current={currentPage}
             defaultCurrent={1}
             pageSize={1}
             disabled={disableHeader}

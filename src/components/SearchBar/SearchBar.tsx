@@ -1,15 +1,20 @@
 import "./SearchBar.scss";
 import { Col, Input, Row } from "antd";
-import React from "react";
+import React, { KeyboardEvent } from "react";
 
 const { Search } = Input;
 
 interface SearchBarProp {
   onSearch: (searchTxt: string) => void;
   isDisable?: boolean;
+  onPressEnter?: (e: KeyboardEvent<HTMLInputElement>) => void;
 }
 
-export const SearchBar = ({ onSearch, isDisable = false }: SearchBarProp) => {
+export const SearchBar = ({
+  onSearch,
+  isDisable = false,
+  onPressEnter,
+}: SearchBarProp) => {
   return (
     <Search
       disabled={isDisable}
@@ -19,6 +24,7 @@ export const SearchBar = ({ onSearch, isDisable = false }: SearchBarProp) => {
       onChange={(e) => {
         onSearch(e.currentTarget.value);
       }}
+      onPressEnter={onPressEnter}
       onSearch={onSearch}
       enterButton
     />
