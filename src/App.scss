@@ -1,0 +1,17 @@
+@import "./style/variable.scss";
+
+.display-flex {
+  display: flex;
+}
+
+.App-divider {
+  color: $divider_color;
+  font-weight: "normal";
+}
+
+
+
+.App-body {
+  background-color: $bg_header;
+  display: flex;
+}

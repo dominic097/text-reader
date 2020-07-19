@@ -1,0 +1,44 @@
+@import "../../style/variable.scss";
+.FileViewer {
+  width: 100%;
+  height: 100vh;
+  .file-search-controller {
+    background-color: $bg_header;
+    min-height: 10vh;
+    color: white;
+    padding: 2%;
+    width: 80%;
+    margin: 0 auto;
+
+    button.ant-btn {
+      height: 40px;
+      border-radius: 5px;
+      margin: 0 2%;
+    }
+
+    .ant-pagination,
+    .ant-pagination-simple .ant-pagination-prev, .ant-pagination-simple .ant-pagination-next,
+    .ant-pagination-simple .ant-pagination-simple-pager,
+    .ant-pagination-simple .ant-pagination-prev .ant-pagination-item-link, .ant-pagination-simple .ant-pagination-next .ant-pagination-item-link {
+      height: 40px;
+      font-size: 1em;
+    }
+  }
+
+  #file-upload-wrapper {
+    display: flex;
+    justify-content: center;
+    height: 80vh;
+    width: 100%;
+    overflow: scroll;
+
+    .file-content {
+      width: 60%;
+      margin: 0 auto;
+      pre {
+        display: initial;
+        font-size: 2em;
+      }
+    }
+  }
+}

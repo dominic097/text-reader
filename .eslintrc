@@ -1,0 +1,45 @@
+{
+    "parser": "babel-eslint",
+    "parserOptions": {
+      "sourceType": "module",
+      "allowImportExportEverywhere": false,
+      "codeFrame": false
+    },
+    "extends": [
+      "airbnb-base",
+      "airbnb/rules/react",
+      "prettier",
+      "prettier/react"
+    ],
+    "env": {
+      "browser": true,
+      "jest": true
+    },
+    "plugins": ["react-hooks"],
+    "rules": {
+      "max-len": [
+        "error",
+        { "code": 160, "ignorePattern": "^import\\s.+\\sfrom\\s.+;$" }
+      ],
+      "prefer-promise-reject-errors": ["off"],
+      "react/jsx-filename-extension": ["off"],
+      "react/prop-types": ["warn"],
+      "no-return-assign": ["off"],
+      "react-hooks/rules-of-hooks": "error",
+      "react-hooks/exhaustive-deps": "warn",
+      "import/prefer-default-export": "off",
+      "react/destructuring-assignment": [
+        "error",
+        "always",
+        { "ignoreClassFields": true }
+      ],
+      "no-restricted-syntax": "off",
+      "no-plusplus": "off",
+      "no-param-reassign": [2, { "props": false }],
+      "import/no-unresolved": [
+        "error",
+        { "ignore": ["^react"] }
+      ]
+    }
+  }
+  
